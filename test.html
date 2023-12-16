@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+        }
+
+        canvas {
+            display: block;
+            position: fixed;
+        }
+
+        #content-container {
+            position: absolute;
+            top: 210%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+
+            font-size: 24px;
+            max-width: 80%;
+            overflow: auto;
+            overflow-x: hidden;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            /* Remove scrollbar space */
+            background: transparent;
+            /* Optional: just make scrollbar invisible */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="stars"></canvas>
+    <div id="content-container">
+        <header>
+            <h1>Bahwinder Singh</h1>
+            <h2>Software Engineering Undergrad</h2>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p>
+                A third-year Computer Science student at Sheridan College, specializing in mobile computing. With
+                skills
+                in HTML/CSS, Java, jQuery, MySQL, MongoDB, C#, Python, and Spring Boot, have practical experience as
+                a
+                Software Support Analyst at CompuCom, resolving hardware and software issues for YVR Airport.
+                <br>
+                Also served as a Field IT Technician at Cogeco Inc., managing on-site installations and repairs, and
+                creating
+                detailed service reports. Personal projects include the FindTea Web App (Spring
+                Boot/HTML/JS/MongoDB)
+                and a
+                Weather App (HTML/CSS/jQuery) using openweathermap API. Additionally, contributed to academia by
+                assisting with
+                Java and jQuery inquiries as a Teaching Assistant at Sheridan College.
+            </p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <p>
+                <strong>Bachelor of Computer Science: Mobile Computing (3rd year)</strong><br>
+                Sheridan College - Trafalgar Campus
+            </p>
+            <p>
+                <strong>Computer Systems Technician - Software Engineering</strong><br>
+                Sheridan College - Davis Campus<br>
+                09/2015 - 08/2017, Brampton
+            </p>
+        </section>
+
+        <section class="container mt-4">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML/CSS</li>
+                <li>Java/Java Enterprise</li>
+                <li>jQuery</li>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+                <li>C#</li>
+                <li>Python</li>
+                <li>Spring Boot</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Work Experience</h2>
+
+            <div class="job">
+                <h3>Software Support Analyst</h3>
+                <p>
+                    <strong>CompuCom</strong><br>
+                    01/2020 - 06/2020, Mississauga, ON<br>
+                    IT support for YVR airport.
+                </p>
+                <ul>
+                    <li>Diagnosed and resolved computer hardware and software issues for YVR Airport employees.</li>
+                    <li>Collected and recorded customer feedback with the aim of enhancing processes within the
+                        ServiceNow
+                        ticketing system.</li>
+                    <li>Conducted in-depth analysis of software-related problems and coordinated dispatches of
+                        on-field
+                        technicians as required.</li>
+                    <li>Regularly reviewed work logs and customer feedback in collaboration with supervisors,
+                        analysts,
+                        and
+                        technicians to identify and implement opportunities for improvement.</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3>Field IT Technician</h3>
+                <p>
+                    <strong>Cogeco Inc.</strong><br>
+                    01/2018 - 11/2019, Oakville, ON<br>
+                    Internet, VOIP, and cable TV.
+                </p>
+                <ul>
+                    <li>Provided IT service and exceptional customer support during field visits and dispatches.
+                    </li>
+                    <li>Managed all on-site internet installations, repairs, maintenance, and testing tasks.</li>
+                    <li>Diagnosed errors and technical problems, swiftly determining and implementing proper
+                        solutions.
+                    </li>
+                    <li>Produced timely and comprehensive service reports to document all activities.</li>
+                    <li>Collaborated effectively with the technical team and actively shared critical information
+                        across
+                        the
+                        organization.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Links to Personal Projects</h2>
+            <p>
+                <a href="https://tinyurl.com/mwdcdcmw" target="_blank">Weather App</a><br>
+                <a href="https://tinyurl.com/ypmv56h9" target="_blank">FindTea Web App</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>FindTea Web App (Spring Boot/HTML/JS/MongoDB)</h3>
+                <p>Working on a small App to find Tea and coffee listed according to ratings in a city.</p>
+            </div>
+            <div class="project">
+                <h3>Weather App (HTML-CSS/jQuery)</h3>
+                <p>Made a mobile web weather app to get weather using openweathermap API.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Volunteer Work</h2>
+            <p>
+                <strong>Teaching Assistant at Sheridan College</strong><br>
+                Helping beginner students with Java and jQuery inquiries.
+            </p>
+        </section>
+
+        <footer>
+            <p>Contact: <a href="mailto:singhbahwinder@gmail.com">singhbahwinder@gmail.com</a> | <a
+                    href="tel:+1 647-936-0747">+1 647-936-0747</a> | <a href="https://www.linkedin.com/in/bobin13"
+                    target="_blank">LinkedIn</a></p>
+        </footer>
+
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size to the window size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Generate random stars
+        const stars = [];
+        for (let i = 0; i < 200; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2,
+                color: 'white'
+            });
+        }
+
+        // Generate shooting stars with random angles
+        const shootingStars = [];
+        for (let i = 0; i < 5; i++) {
+            const angle = Math.random() * Math.PI * 2; // Random angle in radians
+            const speed = Math.random() * 5 + 2;
+            shootingStars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                length: Math.random() * 20 + 5,
+                speed,
+                dx: speed * Math.cos(angle), // Horizontal component
+                dy: speed * Math.sin(angle), // Vertical component
+                color: 'white'
+            });
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (const star of stars) {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = star.color;
+                ctx.fill();
+            }
+
+            for (const star of shootingStars) {
+                ctx.beginPath();
+                ctx.moveTo(star.x, star.y);
+                ctx.lineTo(star.x - star.length * star.dx / star.speed, star.y - star.length * star.dy / star.speed);
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = star.color;
+                ctx.stroke();
+            }
+        }
+
+        function updateStars() {
+            for (const star of stars) {
+                star.x += Math.random() - 0.5; // Random horizontal movement
+                star.y += Math.random() - 0.5; // Random vertical movement
+
+                // Wrap stars around the canvas
+                if (star.x < 0) star.x = canvas.width;
+                if (star.x > canvas.width) star.x = 0;
+                if (star.y < 0) star.y = canvas.height;
+                if (star.y > canvas.height) star.y = 0;
+            }
+
+            for (const star of shootingStars) {
+                star.x += star.dx; // Move shooting stars horizontally
+                star.y += star.dy; // Move shooting stars vertically
+
+                // Reset shooting stars when they go off the canvas
+                if (star.x + star.length * star.dx / star.speed < 0 ||
+                    star.y + star.length * star.dy / star.speed < 0 ||
+                    star.y - star.length * star.dy / star.speed > canvas.height) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 5 + 2;
+                    star.x = canvas.width + Math.random() * 200;
+                    star.y = Math.random() * canvas.height;
+                    star.length = Math.random() * 20 + 5;
+                    star.speed = speed;
+                    star.dx = speed * Math.cos(angle);
+                    star.dy = speed * Math.sin(angle);
+                }
+            }
+        }
+
+        function animate() {
+            updateStars();
+            drawStars();
+            requestAnimationFrame(animate);
+        }
+
+        // Start the animation
+        animate();
+
+        // Resize canvas when the window is resized
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+
+</html>
